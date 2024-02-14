@@ -1,22 +1,38 @@
-/* .btn{
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #0d6efd;
-    --bs-btn-border-color: #0d6efd;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
-    --bs-btn-focus-shadow-rgb: 49,132,253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
-} */
-/* .btn{
-    background-color: blue;
-    color: white;
-    border-radius: 20px;
-   
-} */
+:root {
+    --custom-primary: #8B0000; /* Definizione del colore personalizzato */
+    --custom-secondary: #00008B; /* Definizione del colore personalizzato */
+    --custom-third: #006400; /* Definizione del colore personalizzato */
+    --custom-fourth: #4B0082; /* Definizione del colore personalizzato */
+    --custom-fifth: #FF4500 ; /* Definizione del colore personalizzato */
+    --custom-sixth: #008B8B; /* Definizione del colore personalizzato */
+}
+
+.colors {
+    width: 28px;
+    height: 28px;
+    margin: 0 4px;
+}
+
+.colors:nth-child(1) {
+    background-color: var(--custom-primary);
+}
+
+.colors:nth-child(2) {
+    background-color: var(--custom-secondary);
+}
+
+.colors:nth-child(3) {
+    background-color: var(--custom-third);
+}
+
+.colors:nth-child(4) {
+    background-color: var(--custom-fourth);
+}
+
+.colors:nth-child(5) {
+    background-color: var(--custom-fifth);
+}
+
+.colors:nth-child(6) {
+    background-color: var(--custom-sixth);
+}
