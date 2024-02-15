@@ -58,9 +58,7 @@ document.querySelector("#controlla")?.addEventListener("click", () => {
 	// check();
 });
 
-function cronology(){
-	 
-}
+function cronology() {}
 
 document.querySelector("#cronologia")?.addEventListener("click", () => {
 	cronology();
