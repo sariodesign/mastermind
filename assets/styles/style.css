@@ -5,11 +5,20 @@
     --custom-fourth: #4B0082; /* Definizione del colore personalizzato */
     --custom-fifth: #FF4500 ; /* Definizione del colore personalizzato */
     --custom-sixth: #008B8B; /* Definizione del colore personalizzato */
+    --custom-seventh: #060606; /* Definizione del colore personalizzato */
+    --custom-eighth: #898989; /* Definizione del colore personalizzato */
+    --custom-nineth: #ffffff; /* Definizione del colore personalizzato */
 }
 
 .colors {
     width: 28px;
     height: 28px;
+    margin: 0 4px;
+}
+
+.legend-colors {
+    min-width: 14px;
+    min-height: 14px;
     margin: 0 4px;
 }
 
