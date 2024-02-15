@@ -1,10 +1,13 @@
 :root {
-  --custom-primary: #8b0000; /* Definizione del colore personalizzato */
-  --custom-secondary: #00008b; /* Definizione del colore personalizzato */
-  --custom-third: #006400; /* Definizione del colore personalizzato */
-  --custom-fourth: #4b0082; /* Definizione del colore personalizzato */
-  --custom-fifth: #ff4500; /* Definizione del colore personalizzato */
-  --custom-sixth: #008b8b; /* Definizione del colore personalizzato */
+    --custom-primary: #8B0000; /* Definizione del colore personalizzato */
+    --custom-secondary: #00008B; /* Definizione del colore personalizzato */
+    --custom-third: #006400; /* Definizione del colore personalizzato */
+    --custom-fourth: #4B0082; /* Definizione del colore personalizzato */
+    --custom-fifth: #FF4500 ; /* Definizione del colore personalizzato */
+    --custom-sixth: #008B8B; /* Definizione del colore personalizzato */
+    --custom-seventh: #060606; /* Definizione del colore personalizzato */
+    --custom-eighth: #898989; /* Definizione del colore personalizzato */
+    --custom-nineth: #ffffff; /* Definizione del colore personalizzato */
 }
 
 body {
@@ -19,6 +22,12 @@ body {
   width: 28px;
   height: 28px;
   margin: 0 4px;
+}
+
+.legend-colors {
+    min-width: 14px;
+    min-height: 14px;
+    margin: 0 4px;
 }
 
 .colors:nth-child(1) {
