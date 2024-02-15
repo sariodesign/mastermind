@@ -29,15 +29,39 @@ function generateRandomListOfColors() {
 		randomColors.push(colors[randomColor]);
 	}
 
-	// return randomColors;
-	console.log(randomColors);
+	return randomColors;
 }
 
-generateRandomListOfColors();
+function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
+	let result = {
+		correctColorAndPosition: 0,
+		correctColor: 0,
+	};
+
+	for (let i = 0; i < COLORS_LENGHT; i++) {
+		if (colorFromUser[i] === colorsToGuess[i]) {
+			result.correctColorAndPosition++;
+		} else if (colorsToGuess.includes(colorFromUser[i])) {
+			result.correctColor++;
+		}
+	}
+
+	if (result.correctColorAndPosition === COLORS_LENGHT) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+document.querySelector("#controlla")?.addEventListener("click", () => {
+	// todo: implementare la logica di gioco
+	// check();
+});
 
 function cronology(){
 	 
 }
+
 document.querySelector("#cronologia")?.addEventListener("click", () => {
 	cronology();
 });
