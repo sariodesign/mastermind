@@ -81,6 +81,7 @@ function handlerHideChronology() {
 	}
 }
 
+
 /**
  * Aggiungo l'evento per mostrare la cronologia
  */
