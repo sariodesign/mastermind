@@ -1,69 +1,70 @@
 :root {
-  --custom-primary: #8b0000; /* Definizione del colore personalizzato */
-  --custom-secondary: #00008b; /* Definizione del colore personalizzato */
-  --custom-third: #006400; /* Definizione del colore personalizzato */
-  --custom-fourth: #4b0082; /* Definizione del colore personalizzato */
-  --custom-fifth: #ff4500; /* Definizione del colore personalizzato */
-  --custom-sixth: #008b8b; /* Definizione del colore personalizzato */
+	--red: #8b0000; /* Definizione del colore personalizzato */
+	--dark-blue: #00008b; /* Definizione del colore personalizzato */
+	--green: #006400; /* Definizione del colore personalizzato */
+	--purple: #4b0082; /* Definizione del colore personalizzato */
+	--orange: #ff4500; /* Definizione del colore personalizzato */
+	--light-blue: #008b8b; /* Definizione del colore personalizzato */
 }
 
 body {
-  font-family: "Sixtyfour", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "BLED" 0, "SCAN" 0;
+	font-family: "Sixtyfour", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: "BLED" 0, "SCAN" 0;
 }
 
 .colors {
-  width: 28px;
-  height: 28px;
-  margin: 0 4px;
+	width: 28px;
+	height: 28px;
+	margin: 0 4px;
+	cursor: pointer;
 }
 
-.colors:nth-child(1) {
-  background-color: var(--custom-primary);
+/* .colors:nth-child(1) {
+	background-color: var(--custom-primary);
 }
 
 .colors:nth-child(2) {
-  background-color: var(--custom-secondary);
+	background-color: var(--custom-secondary);
 }
 
 .colors:nth-child(3) {
-  background-color: var(--custom-third);
+	background-color: var(--custom-third);
 }
 
 .colors:nth-child(4) {
-  background-color: var(--custom-fourth);
+	background-color: var(--custom-fourth);
 }
 
 .colors:nth-child(5) {
-  background-color: var(--custom-fifth);
+	background-color: var(--custom-fifth);
 }
 
 .colors:nth-child(6) {
-  background-color: var(--custom-sixth);
-}
+	background-color: var(--custom-sixth);
+} */
 
 .input-attempt {
-  padding: 4px 8px;
-  text-align: right;
-  width: 75px;
+	padding: 4px 8px;
+	text-align: right;
+	width: 75px;
 }
 
 .chronology {
-    background-color: #fff;
-    box-shadow: 4px 0 20px -10px rgba(0,0,0,.25);
-    left: -100%;
-    min-height: 100vh;
-    padding: 8px;
-    position: absolute;
-    top: 0;
-    transition: all .25s ease-in-out;
-    z-index: 2;
-    width: 50vw;
+	background-color: #fff;
+	box-shadow: 4px 0 20px -10px rgba(0, 0, 0, 0.25);
+	left: -100%;
+	min-height: 100vh;
+	padding: 8px;
+	position: absolute;
+	top: 0;
+	transition: all 0.25s ease-in-out;
+	z-index: 2;
+	width: 50vw;
 }
 
 .chronology.show {
-    left: 0;
+	left: 0;
 }
