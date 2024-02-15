@@ -57,3 +57,11 @@ document.querySelector("#controlla")?.addEventListener("click", () => {
 	// todo: implementare la logica di gioco
 	// check();
 });
+
+function cronology(){
+	 
+}
+
+document.querySelector("#cronologia")?.addEventListener("click", () => {
+	cronology();
+});
