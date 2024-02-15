@@ -1,10 +1,13 @@
 :root {
-	--red: #8b0000; /* Definizione del colore personalizzato */
-	--dark-blue: #00008b; /* Definizione del colore personalizzato */
-	--green: #006400; /* Definizione del colore personalizzato */
-	--purple: #4b0082; /* Definizione del colore personalizzato */
-	--orange: #ff4500; /* Definizione del colore personalizzato */
-	--light-blue: #008b8b; /* Definizione del colore personalizzato */
+  --custom-primary: #8B0000; /* Definizione del colore personalizzato */
+  --custom-secondary: #00008B; /* Definizione del colore personalizzato */
+  --custom-third: #006400; /* Definizione del colore personalizzato */
+  --custom-fourth: #4B0082; /* Definizione del colore personalizzato */
+  --custom-fifth: #FF4500 ; /* Definizione del colore personalizzato */
+  --custom-sixth: #008B8B; /* Definizione del colore personalizzato */
+  --custom-seventh: #060606; /* Definizione del colore personalizzato */
+  --custom-eighth: #898989; /* Definizione del colore personalizzato */
+  --custom-nineth: #ffffff; /* Definizione del colore personalizzato */
 }
 
 body {
@@ -22,29 +25,11 @@ body {
 	cursor: pointer;
 }
 
-/* .colors:nth-child(1) {
-	background-color: var(--custom-primary);
+.legend-colors {
+    min-width: 14px;
+    min-height: 14px;
+    margin: 0 4px;
 }
-
-.colors:nth-child(2) {
-	background-color: var(--custom-secondary);
-}
-
-.colors:nth-child(3) {
-	background-color: var(--custom-third);
-}
-
-.colors:nth-child(4) {
-	background-color: var(--custom-fourth);
-}
-
-.colors:nth-child(5) {
-	background-color: var(--custom-fifth);
-}
-
-.colors:nth-child(6) {
-	background-color: var(--custom-sixth);
-} */
 
 .input-attempt {
 	padding: 4px 8px;
