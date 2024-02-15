@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mastermind</title>
+	<!-- link di stile bootstrap -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
+	<!-- link di stile css -->
     <link rel="stylesheet" href="./assets/styles/style.css" />
+	<!-- link del font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,24 +21,29 @@
   </head>
 
 	<body>
+		<!-- TITOLO -->
 		<header class="text-center py-3">
 			<h1>Mastermind</h1>
 		</header>
 		<main class="container d-flex flex-column align-items-center">
 			<div class="d-flex flex-column align-items-center mb-5">
 				<div class="d-flex column-gap-3 align-items-center mb-3">
+					<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
 					<label>Inserisci numero di tentativi</label>
+					<!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
 					<input
 						class="input-attempt"
 						type="number"
 						placeholder="Inserisci numero tentativi"
 						value="10"
 					/>
+				<!-- PULSANTE INIZIA -->
 				</div>
 				<button type="button" id="start-game" class="btn btn-primary">
 					Inizia
 				</button>
 			</div>
+			<!-- SFILOTTO DI COLORI -->
 			<div class="mb-5" id="combination"></div>
 			<div class="color-selections d-flex justify-content-center mb-3">
 				<div class="colors rounded-circle"></div>
@@ -45,16 +53,22 @@
 				<div class="colors rounded-circle"></div>
 				<div class="colors rounded-circle"></div>
 			</div>
+			<!-- PULSANTE CONFERMA -->
 			<button type="button" class="btn btn-primary" id="confirm">Conferma</button>
+			<!-- CRONOLOGIA DEI TENTATIVI -->
 			<aside class="chronology" id="chronology">
+				<!-- SOTTOTITOLO CRONOLOGIA -->
 				<h3>Cronologia</h3>
+				<!-- BOTTONE NASCONDI CRONOLOGIA -->
 				<button id="hide-chronology">Hide</button>
+				<!-- SOTTOTITOLO TENTATIVI -->
 				<div>Tentativi</div>
 			</aside>
 		</main>
 
 
 		<div class="position-fixed bottom-0 start-0 p-5">
+			<!-- BOTTONE CRONOLOGIA -->
 			<button type="button" class="btn btn-primary" id="show-chronology">
 				Cronologia
 			</button>
