@@ -1,46 +1,54 @@
 :root {
-    --custom-primary: #8B0000; /* Definizione del colore personalizzato */
-    --custom-secondary: #00008B; /* Definizione del colore personalizzato */
-    --custom-third: #006400; /* Definizione del colore personalizzato */
-    --custom-fourth: #4B0082; /* Definizione del colore personalizzato */
-    --custom-fifth: #FF4500 ; /* Definizione del colore personalizzato */
-    --custom-sixth: #008B8B; /* Definizione del colore personalizzato */
+  --custom-primary: #8b0000; /* Definizione del colore personalizzato */
+  --custom-secondary: #00008b; /* Definizione del colore personalizzato */
+  --custom-third: #006400; /* Definizione del colore personalizzato */
+  --custom-fourth: #4b0082; /* Definizione del colore personalizzato */
+  --custom-fifth: #ff4500; /* Definizione del colore personalizzato */
+  --custom-sixth: #008b8b; /* Definizione del colore personalizzato */
+}
+
+body {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "BLED" 0, "SCAN" 0;
 }
 
 .colors {
-    width: 28px;
-    height: 28px;
-    margin: 0 4px;
+  width: 28px;
+  height: 28px;
+  margin: 0 4px;
 }
 
 .colors:nth-child(1) {
-    background-color: var(--custom-primary);
+  background-color: var(--custom-primary);
 }
 
 .colors:nth-child(2) {
-    background-color: var(--custom-secondary);
+  background-color: var(--custom-secondary);
 }
 
 .colors:nth-child(3) {
-    background-color: var(--custom-third);
+  background-color: var(--custom-third);
 }
 
 .colors:nth-child(4) {
-    background-color: var(--custom-fourth);
+  background-color: var(--custom-fourth);
 }
 
 .colors:nth-child(5) {
-    background-color: var(--custom-fifth);
+  background-color: var(--custom-fifth);
 }
 
 .colors:nth-child(6) {
-    background-color: var(--custom-sixth);
+  background-color: var(--custom-sixth);
 }
 
 .input-attempt {
-    padding: 4px 8px;
-    text-align: right;
-    width: 75px
+  padding: 4px 8px;
+  text-align: right;
+  width: 75px;
 }
 
 .chronology {
