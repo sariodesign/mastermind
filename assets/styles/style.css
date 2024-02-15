@@ -36,3 +36,18 @@
 .colors:nth-child(6) {
     background-color: var(--custom-sixth);
 }
+
+.input-attempt {
+    padding: 4px 8px;
+    text-align: right;
+    width: 75px
+}
+
+.chronology {
+    left: -100%;
+    min-height: 100vh;
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    width: 50vw;
+}
