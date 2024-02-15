@@ -58,10 +58,39 @@ document.querySelector("#controlla")?.addEventListener("click", () => {
 	// check();
 });
 
-function cronology(){
-	 
+/**
+ * Funzione per gestire l'apertura della scheda della cronologia
+ */
+
+function handlerShowChronology() {
+	const chronology = document.querySelector("#chronology");
+	console.log("Show/Hide")
+	if (chronology) {
+		chronology.classList.add("show");
+	}
 }
 
-document.querySelector("#cronologia")?.addEventListener("click", () => {
-	cronology();
+/**
+ * Funzione per gestire la chiusura della scheda della cronologia
+ */
+
+function handlerHideChronology() {
+	const chronology = document.querySelector("#chronology");
+	if (chronology) {
+		chronology.classList.remove("show");
+	}
+}
+
+/**
+ * Aggiungo l'evento per mostrare la cronologia
+ */
+document.querySelector("#show-chronology")?.addEventListener("click", () => {
+	handlerShowChronology();
+});
+
+/**
+ * Aggiungo l'evento per nascondere la cronologia
+ */
+document.querySelector("#hide-chronology")?.addEventListener("click", () => {
+	handlerHideChronology();
 });
