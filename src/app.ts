@@ -34,3 +34,10 @@ function generateRandomListOfColors() {
 }
 
 generateRandomListOfColors();
+
+function cronology(){
+	 
+}
+document.querySelector("#cronologia")?.addEventListener("click", () => {
+	cronology();
+});
