@@ -9,15 +9,19 @@ enum Colors {
 
 const COLORS_LENGHT = 4;
 
+let colorsToGuess: Colors[] = [];
+let userChoice: Colors[] = [];
+
 function generateRandomListOfColors() {
-	let colors: Colors[] = [
-		Colors.RED,
-		Colors.DARKBLUE,
-		Colors.GREEN,
-		Colors.PURPLE,
-		Colors.ORANGE,
+	const colors = [
 		Colors.LIGHTBLUE,
+		Colors.ORANGE,
+		Colors.PURPLE,
+		Colors.GREEN,
+		Colors.DARKBLUE,
+		Colors.RED,
 	];
+
 	let randomColors: Colors[] = [];
 
 	for (let i = 0; i < COLORS_LENGHT; i++) {
@@ -32,6 +36,9 @@ function generateRandomListOfColors() {
 	return randomColors;
 }
 
+/**
+ * Funzione per gestire il controllo della combinazione scelta dall'utente
+ */
 function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 	let result = {
 		correctColorAndPosition: 0,
@@ -53,18 +60,16 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 	}
 }
 
-document.querySelector("#controlla")?.addEventListener("click", () => {
-	// todo: implementare la logica di gioco
-	// check();
+document.querySelector("#confirm")?.addEventListener("click", () => {
+	console.log(check(userChoice, colorsToGuess));
 });
 
 /**
  * Funzione per gestire l'apertura della scheda della cronologia
  */
-
 function handlerShowChronology() {
 	const chronology = document.querySelector("#chronology");
-	console.log("Show/Hide")
+	console.log("Show/Hide");
 	if (chronology) {
 		chronology.classList.add("show");
 	}
@@ -73,14 +78,12 @@ function handlerShowChronology() {
 /**
  * Funzione per gestire la chiusura della scheda della cronologia
  */
-
 function handlerHideChronology() {
 	const chronology = document.querySelector("#chronology");
 	if (chronology) {
 		chronology.classList.remove("show");
 	}
 }
-
 
 /**
  * Aggiungo l'evento per mostrare la cronologia
@@ -95,3 +98,63 @@ document.querySelector("#show-chronology")?.addEventListener("click", () => {
 document.querySelector("#hide-chronology")?.addEventListener("click", () => {
 	handlerHideChronology();
 });
+
+/**
+ * Funzione per settare i colori da scegliere
+ */
+function setColors() {
+	const COLORS = [
+		Colors.LIGHTBLUE,
+		Colors.ORANGE,
+		Colors.PURPLE,
+		Colors.GREEN,
+		Colors.DARKBLUE,
+		Colors.RED,
+	];
+
+	(Array.from(document.querySelectorAll(".colors")) as HTMLElement[]).forEach(
+		(color) => {
+			color.style.backgroundColor = COLORS.pop() as string;
+
+			// Aggiungo l'evento ad ogni colore per gestire la scelta dell'utente
+			color.addEventListener("click", (event) => {
+				// Recupero il colore scelto dall'utente
+				let color = (event.target as HTMLElement).dataset
+					.color as Colors;
+
+				// Controllo se il colore è già stato scelto
+				if (userChoice.includes(color)) {
+					return;
+				}
+
+				// imposto un bordo al colore scelto
+				(event.target as HTMLElement).style.border = "2px solid black";
+
+				addColorToUserChoice(color);
+			});
+		}
+	);
+}
+
+/**
+ * Funzione per aggiungere il colore scelto dall'utente alla lista di scelte dell'utente
+ */
+function addColorToUserChoice(color: Colors) {
+	userChoice.push(color);
+	console.log(userChoice);
+}
+
+/**
+ *  funzione eseguita all'avvio del gioco
+ */
+function startGame() {
+	// setto i colori
+	setColors();
+
+	// genero i colori da indovinare
+	colorsToGuess = generateRandomListOfColors();
+	console.log(colorsToGuess);
+}
+
+// TODO: impostare la funzione che deve essere eseguita dopo la scelta del numero di tentativi
+startGame();
