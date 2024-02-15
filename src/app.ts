@@ -118,8 +118,18 @@ function setColors() {
 
 			// Aggiungo l'evento ad ogni colore per gestire la scelta dell'utente
 			color.addEventListener("click", (event) => {
+				// Recupero il colore scelto dall'utente
 				let color = (event.target as HTMLElement).dataset
 					.color as Colors;
+
+				// Controllo se il colore è già stato scelto
+				if (userChoice.includes(color)) {
+					return;
+				}
+
+				// imposto un bordo al colore scelto
+				(event.target as HTMLElement).style.border = "2px solid black";
+
 				addColorToUserChoice(color);
 			});
 		}
@@ -127,15 +137,10 @@ function setColors() {
 }
 
 /**
- * Funzione per gestire la scelta del colore da parte dell'utente
+ * Funzione per aggiungere il colore scelto dall'utente alla lista di scelte dell'utente
  */
 function addColorToUserChoice(color: Colors) {
-	if (userChoice.includes(color)) {
-		return;
-	}
-
 	userChoice.push(color);
-
 	console.log(userChoice);
 }
 
