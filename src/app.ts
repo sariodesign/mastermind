@@ -61,15 +61,15 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 		return true;
 	} else {
 		// Add failed combination to chronology
-		console.log('Aggiungere combinazione alla cronoologia');
-		createFailedSelection(colorFromUser,asideChronology);
+		console.log("Aggiungere combinazione alla cronoologia");
+		createFailedSelection(colorFromUser, asideChronology);
 		return false;
 	}
 }
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
 	console.log(check(userChoice, colorsToGuess));
-	check(userChoice, colorsToGuess) ? handleWin() : handleWrongAttempt();
+	check(userChoice, colorsToGuess) ? handleWin() : console.log();
 
 	userChoice = [];
 	document
