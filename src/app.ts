@@ -71,6 +71,7 @@ function handlerShowChronology() {
 	const chronology = document.querySelector("#chronology");
 	console.log("Show/Hide");
 	if (chronology) {
+		console.log("Show")
 		chronology.classList.add("show");
 	}
 }
@@ -155,6 +156,15 @@ function startGame() {
 	colorsToGuess = generateRandomListOfColors();
 	console.log(colorsToGuess);
 }
+
+/**
+ * Aggiunta evento per gestire la chiusura della scheda della cronologia quando si clicca fuori dalla scheda
+ */
+document.addEventListener("click", (event) => {
+	if(event.target !== document.querySelector("#show-chronology") && event.target !== document.querySelector("#chronology")) {
+		handlerHideChronology();
+	}
+});
 
 // TODO: impostare la funzione che deve essere eseguita dopo la scelta del numero di tentativi
 startGame();
