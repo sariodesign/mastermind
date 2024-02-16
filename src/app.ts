@@ -1,10 +1,10 @@
 enum Colors {
-	RED = "#8B0000",
-	DARKBLUE = "#00008B",
-	GREEN = "#006400",
-	PURPLE = "#4B0082",
-	ORANGE = "#FF4500",
-	LIGHTBLUE = "#008B8B",
+	RED = "red",
+	DARKBLUE = "darkBlue",
+	GREEN = "green",
+	PURPLE = "purple",
+	ORANGE = "orange",
+	LIGHTBLUE = "lightBlue",
 }
 
 const COLORS_LENGHT = 4;
@@ -71,7 +71,7 @@ function handlerShowChronology() {
 	const chronology = document.querySelector("#chronology");
 	console.log("Show/Hide");
 	if (chronology) {
-		console.log("Show")
+		console.log("Show");
 		chronology.classList.add("show");
 	}
 }
@@ -113,8 +113,14 @@ function setColors() {
 		Colors.RED,
 	];
 
-	(Array.from(document.querySelectorAll(".colors")) as HTMLElement[]).forEach(
-		(color) => {
+	const colorSelection = document.getElementById("color-selection");
+
+	if (colorSelection) {
+		(
+			Array.from(
+				colorSelection.querySelectorAll(".colors")
+			) as HTMLElement[]
+		).forEach((color) => {
 			color.style.backgroundColor = COLORS.pop() as string;
 
 			// Aggiungo l'evento ad ogni colore per gestire la scelta dell'utente
@@ -125,6 +131,13 @@ function setColors() {
 
 				// Controllo se il colore è già stato scelto
 				if (userChoice.includes(color)) {
+					(event.target as HTMLElement).style.border = "";
+					removeColorFromUserChoice(color);
+					return;
+				}
+
+				// Controllo che ci siano massimo quattro colori
+				if (userChoice.length === 4) {
 					return;
 				}
 
@@ -133,8 +146,24 @@ function setColors() {
 
 				addColorToUserChoice(color);
 			});
-		}
-	);
+		});
+	}
+}
+
+function removeColorFromUserChoice(color: Colors) {
+	userChoice = userChoice.filter((c) => c !== color);
+	console.log(userChoice);
+	const combination = document.getElementById("combination");
+	combination
+		?.querySelectorAll(".colors")
+		.forEach((color: Element, index) => {
+			if (userChoice[index]) {
+				(color as HTMLElement).style.backgroundColor =
+					userChoice[index];
+			} else {
+				(color as HTMLElement).style.backgroundColor = "";
+			}
+		});
 }
 
 /**
@@ -143,6 +172,15 @@ function setColors() {
 function addColorToUserChoice(color: Colors) {
 	userChoice.push(color);
 	console.log(userChoice);
+	const combination = document.getElementById("combination");
+	combination
+		?.querySelectorAll(".colors")
+		.forEach((color: Element, index) => {
+			if (userChoice[index]) {
+				(color as HTMLElement).style.backgroundColor =
+					userChoice[index];
+			}
+		});
 }
 
 /**
@@ -161,7 +199,10 @@ function startGame() {
  * Aggiunta evento per gestire la chiusura della scheda della cronologia quando si clicca fuori dalla scheda
  */
 document.addEventListener("click", (event) => {
-	if(event.target !== document.querySelector("#show-chronology") && event.target !== document.querySelector("#chronology")) {
+	if (
+		event.target !== document.querySelector("#show-chronology") &&
+		event.target !== document.querySelector("#chronology")
+	) {
 		handlerHideChronology();
 	}
 });
