@@ -210,30 +210,6 @@ function addColorToUserChoice(color: Colors) {
 }
 
 /**
- * Funzione per gestire il tentativo sbagliato dell'utente
- */
-function handleWrongAttempt() {
-	// const chronology = document.getElementById("chronology");
-	// if (chronology) {
-	// 	const attempt = document.createElement("div");
-	// 	attempt.classList.add("attempt");
-	// 	attempt.innerHTML = `
-	// 	<div class="colors-container">
-	// 		<div class="colors" style="background-color: ${userChoice[0]}"></div>
-	// 		<div class="colors" style="background-color: ${userChoice[1]}"></div>
-	// 		<div class="colors" style="background-color: ${userChoice[2]}"></div>
-	// 		<div class="colors" style="background-color: ${userChoice[3]}"></div>
-	// 	</div>
-	// 	<div class="result">
-	// 		<div class="correct-color-and-position">${Math.floor(Math.random() * 4)}</div>
-	// 		<div class="correct-color">${Math.floor(Math.random() * 4)}</div>
-	// 	</div>
-	// 	`;
-	// 	chronology.appendChild(attempt);
-	// }
-}
-
-/**
  * Funzione per gestire la sconfitta dell'utente
  */
 function handleLose() {
