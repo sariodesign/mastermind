@@ -69,6 +69,22 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
 	console.log(check(userChoice, colorsToGuess));
+	check(userChoice, colorsToGuess) ? handleWin() : handleWrongAttempt();
+
+	userChoice = [];
+	document
+		.querySelector("#combination")
+		?.querySelectorAll(".colors")
+		.forEach((color: Element) => {
+			(color as HTMLElement).style.backgroundColor = "";
+		});
+
+	document
+		.querySelector("#color-selection")
+		?.querySelectorAll(".colors")
+		.forEach((color: Element) => {
+			(color as HTMLElement).style.border = "";
+		});
 });
 
 /**
@@ -157,6 +173,9 @@ function setColors() {
 	}
 }
 
+/**
+ * Funzione per rimuovere il colore scelto dall'utente dalla lista di scelte dell'utente
+ */
 function removeColorFromUserChoice(color: Colors) {
 	userChoice = userChoice.filter((c) => c !== color);
 	console.log(userChoice);
@@ -191,7 +210,59 @@ function addColorToUserChoice(color: Colors) {
 }
 
 /**
- *  funzione eseguita all'avvio del gioco
+ * Funzione per gestire il tentativo sbagliato dell'utente
+ */
+function handleWrongAttempt() {
+	// const chronology = document.getElementById("chronology");
+	// if (chronology) {
+	// 	const attempt = document.createElement("div");
+	// 	attempt.classList.add("attempt");
+	// 	attempt.innerHTML = `
+	// 	<div class="colors-container">
+	// 		<div class="colors" style="background-color: ${userChoice[0]}"></div>
+	// 		<div class="colors" style="background-color: ${userChoice[1]}"></div>
+	// 		<div class="colors" style="background-color: ${userChoice[2]}"></div>
+	// 		<div class="colors" style="background-color: ${userChoice[3]}"></div>
+	// 	</div>
+	// 	<div class="result">
+	// 		<div class="correct-color-and-position">${Math.floor(Math.random() * 4)}</div>
+	// 		<div class="correct-color">${Math.floor(Math.random() * 4)}</div>
+	// 	</div>
+	// 	`;
+	// 	chronology.appendChild(attempt);
+	// }
+}
+
+/**
+ * Funzione per gestire la sconfitta dell'utente
+ */
+function handleLose() {
+	const message = "You Lost";
+
+	const p = document.createElement("p");
+	p.innerHTML = message;
+
+	document.querySelector(".modal-body")?.appendChild(p);
+
+	document.getElementById("modalOpenButton")?.click();
+}
+
+/**
+ * Funzione per gestire la vittoira dell'utente
+ */
+function handleWin() {
+	const message = "You Won";
+
+	const p = document.createElement("p");
+	p.innerHTML = message;
+
+	document.querySelector(".modal-body")?.appendChild(p);
+
+	document.getElementById("modalOpenButton")?.click();
+}
+
+/**
+ *  Funzione eseguita all'avvio del gioco
  */
 function startGame() {
 	// setto i colori

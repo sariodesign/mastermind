@@ -191,7 +191,8 @@
 			type="button"
 			class="btn btn-primary d-none"
 			data-bs-toggle="modal"
-			data-bs-target="#exampleModal"
+			data-bs-target="#modal"
+			id="modalOpenButton"
 		>
 			Launch demo modal
 		</button>
@@ -199,9 +200,9 @@
 		<!-- Modal -->
 		<div
 			class="modal fade"
-			id="exampleModal"
+			id="modal"
 			tabindex="-1"
-			aria-labelledby="exampleModalLabel"
+			aria-labelledby="modalLabel"
 			aria-hidden="true"
 		>
 			<div class="modal-dialog">
@@ -214,10 +215,7 @@
 							aria-label="Close"
 						></button>
 					</div>
-					<div class="modal-body">
-						<p class="d-none">You <span id="won"></span></p>
-						<p class="d-none">You <span id="lost"></span></p>
-					</div>
+					<div class="modal-body"></div>
 					<div class="modal-footer">
 						<button
 							type="button"
