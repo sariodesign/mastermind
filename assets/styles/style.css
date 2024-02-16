@@ -1,57 +1,67 @@
 :root {
-	--custom-primary: #8b0000; /* Definizione del colore personalizzato */
-	--custom-secondary: #00008b; /* Definizione del colore personalizzato */
-	--custom-third: #006400; /* Definizione del colore personalizzato */
-	--custom-fourth: #4b0082; /* Definizione del colore personalizzato */
-	--custom-fifth: #ff4500; /* Definizione del colore personalizzato */
-	--custom-sixth: #008b8b; /* Definizione del colore personalizzato */
-	--custom-seventh: #060606; /* Definizione del colore personalizzato */
-	--custom-eighth: #898989; /* Definizione del colore personalizzato */
-	--custom-nineth: #ffffff; /* Definizione del colore personalizzato */
+  --custom-primary: #8b0000; /* Definizione del colore personalizzato */
+  --custom-secondary: #00008b; /* Definizione del colore personalizzato */
+  --custom-third: #006400; /* Definizione del colore personalizzato */
+  --custom-fourth: #4b0082; /* Definizione del colore personalizzato */
+  --custom-fifth: #ff4500; /* Definizione del colore personalizzato */
+  --custom-sixth: #008b8b; /* Definizione del colore personalizzato */
+  --custom-seventh: #060606; /* Definizione del colore personalizzato */
+  --custom-eighth: #898989; /* Definizione del colore personalizzato */
+  --custom-nineth: #ffffff; /* Definizione del colore personalizzato */
 }
 
 body {
-	font-family: "Sixtyfour", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
-	font-variation-settings: "BLED" 0, "SCAN" 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .colors {
-	width: 28px;
-	height: 28px;
-	margin: 0 4px;
-	cursor: pointer;
+  width: 28px;
+  height: 28px;
+  margin: 0 4px;
+  cursor: pointer;
 }
 
 .legend-colors {
-	min-width: 14px;
-	min-height: 14px;
-	margin: 0 4px;
+  min-width: 14px;
+  min-height: 14px;
+  margin: 0 4px;
 }
 
 .input-attempt {
-	padding: 4px 8px;
-	text-align: right;
-	width: 75px;
+  padding: 4px 8px;
+  text-align: right;
+  width: 75px;
 }
 
 .chronology {
-	background-color: #fff;
-	box-shadow: 4px 0 20px -10px rgba(0, 0, 0, 0.25);
-	left: -100%;
-	min-height: 100vh;
-	padding: 24px;
-	position: absolute;
-	top: 0;
-	transition: all 0.25s ease-in-out;
-	z-index: 2;
-	width: 50vw;
+  background-color: #fff;
+  box-shadow: 4px 0 20px -10px rgba(0, 0, 0, 0.25);
+  left: -100%;
+  min-height: 100vh;
+  padding: 24px;
+  position: absolute;
+  top: 0;
+  transition: all 0.25s ease-in-out;
+  z-index: 2;
+  width: 50vw;
 }
 
 .chronology.show {
-	left: 0;
+  left: 0;
+}
+
+.sixtyfour {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "BLED" 0, "SCAN" 0;
+}
+
+.instruction{
+	font-size: x-large;
 }
 
 .border {
