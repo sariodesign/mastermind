@@ -39,10 +39,13 @@ body {
 .chronology {
   background-color: #fff;
   box-shadow: 4px 0 20px -10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
   left: -100%;
   min-height: 100vh;
   padding: 24px;
   position: absolute;
+  row-gap: 16px;
   top: 0;
   transition: all 0.25s ease-in-out;
   z-index: 2;
@@ -51,6 +54,31 @@ body {
 
 .chronology.show {
   left: 0;
+}
+
+.attempts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.attempts-list {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  row-gap: 16px;
+}
+
+.attempt-failed {
+  display: flex;
+  column-gap: 4px;
+}
+
+.attempt-failed-item {
+  border-radius: 50%;
 }
 
 .sixtyfour {
