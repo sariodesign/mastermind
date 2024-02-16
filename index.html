@@ -4,106 +4,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mastermind</title>
-	<!-- link di stile bootstrap -->
+    <!-- link di stile bootstrap -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
-	<!-- link di stile css -->
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-	<!-- link del font -->
+    <!-- link del font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap"
-      rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap"
+	rel="stylesheet"
     />
+	<!-- link dei testi leggibili -->
+    <link
+	href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+	rel="stylesheet"
+    />
+    <!-- link di stile css -->
+    <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
 
-	<body>
-		<!-- TITOLO -->
-		<header class="text-center py-3">
-			<!-- Navbar -->
-    <navbar class="navbar d-flex justify-content-center navbar-light">
-        
-        <h2>Mastermind</h2>
+  <body>
+    <!-- TITOLO -->
+    <header class="text-center py-3">
+      <!-- Navbar -->
+      <navbar class="navbar d-flex justify-content-center navbar-light">
+        <h2 class="sixtyfour">Mastermind</h2>
 
-          <button class="btn btn-link position-absolute top-0 end-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-            <img src="./assets/hamburger-icon.png" width="32" height="32" />
-          </button>
-          
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Legenda</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <div>
-                <div class="d-flex align-items-center">
-                    <p style="background-color: var(--custom-seventh);" class="legend-colors rounded-circle me-2"></p>
-                    <p class="mb-0">Colore nella posizione corretta</p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p style="background-color: var(--custom-eighth);" class="legend-colors rounded-circle me-2"></p>
-                    <p class="mb-0">Colore presente nella combinazione ma non nella posizione corretta</p>
-                </div>
-                <div class="d-flex align-items-center">
-                    <p style="background-color: var(--custom-nineth);" class="legend-colors rounded-circle me-2 border border-black"></p>
-                    <p class="mb-0">Colore non presente nella combinazione</p>
-                </div>
-              </div>              
+        <button
+          class="btn btn-link position-absolute top-0 end-0 sixtyfour"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+        >
+          <img src="./assets/hamburger-icon.png" width="32" height="32" />
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Legenda</h5>
+            <button
+              type="button"
+              class="btn-close sixtyfour"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div>
+              <div class="d-flex align-items-center">
+                <p
+                  style="background-color: var(--custom-seventh)"
+                  class="legend-colors rounded-circle me-2"
+                ></p>
+                <p class="mb-0">Colore nella posizione corretta</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <p
+                  style="background-color: var(--custom-eighth)"
+                  class="legend-colors rounded-circle me-2"
+                ></p>
+                <p class="mb-0">
+                  Colore presente nella combinazione ma non nella posizione
+                  corretta
+                </p>
+              </div>
+              <div class="d-flex align-items-center">
+                <p
+                  style="background-color: var(--custom-nineth)"
+                  class="legend-colors rounded-circle me-2 border border-black"
+                ></p>
+                <p class="mb-0">Colore non presente nella combinazione</p>
+              </div>
             </div>
           </div>
-    </navbar>
-		</header>
-		<main class="container d-flex flex-column align-items-center">
-			<div class="d-flex flex-column align-items-center mb-5">
-				<div class="d-flex column-gap-3 align-items-center mb-3">
-					<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
-					<label>Inserisci numero di tentativi</label>
-					<!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
-					<input
-						class="input-attempt"
-						type="number"
-						placeholder="Inserisci numero tentativi"
-						value="10"
-					/>
-				<!-- PULSANTE INIZIA -->
-				</div>
-				<button type="button" id="start-game" class="btn btn-primary">
-					Inizia
-				</button>
-			</div>
-			<!-- SFILOTTO DI COLORI -->
-			<div class="mb-5" id="combination"></div>
-			<div class="color-selections d-flex justify-content-center mb-3">
-				<div class="colors rounded-circle" data-color="red"></div>
-				<div class="colors rounded-circle" data-color="dark-blue"></div>
-				<div class="colors rounded-circle" data-color="green"></div>
-				<div class="colors rounded-circle" data-color="purple"></div>
-				<div class="colors rounded-circle" data-color="orange"></div>
-				<div class="colors rounded-circle" data-color="light-blue"></div>
-			</div>
-			<!-- PULSANTE CONFERMA -->
-			<button type="button" class="btn btn-primary" id="confirm">Conferma</button>
-			<!-- CRONOLOGIA DEI TENTATIVI -->
-			<aside class="chronology" id="chronology">
-				<!-- SOTTOTITOLO CRONOLOGIA -->
-				<h3>Cronologia</h3>
-				<!-- BOTTONE NASCONDI CRONOLOGIA -->
-				<button type="button" id="hide-chronology" class="btn btn-dark position-absolute mt-4 me-4 top-0 end-0">Chiudi</button>
-				<!-- SOTTOTITOLO TENTATIVI -->
-				<div>Tentativi</div>
-			</aside>
-		</main>
+        </div>
+      </navbar>
+    </header>
+    <main class="container d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center mb-5">
+        <div class="d-flex column-gap-3 align-items-center mb-3">
+          <!-- SOTTOTITOLO PER LE ISTRUZIONI -->
+          <label class="instruction">Inserisci numero di tentativi</label>
+          <!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
+          <input
+            class="input-attempt"
+            type="number"
+            placeholder="Inserisci numero tentativi"
+            value="10"
+          />
+          <!-- PULSANTE INIZIA -->
+        </div>
+        <button type="button" id="start-game" class="btn btn-primary sixtyfour">
+          Inizia
+        </button>
+      </div>
+      <!-- SFILOTTO DI COLORI -->
+      <div class="mb-5" id="combination"></div>
+      <div class="color-selections d-flex justify-content-center mb-3">
+        <div class="colors rounded-circle" data-color="red"></div>
+        <div class="colors rounded-circle" data-color="dark-blue"></div>
+        <div class="colors rounded-circle" data-color="green"></div>
+        <div class="colors rounded-circle" data-color="purple"></div>
+        <div class="colors rounded-circle" data-color="orange"></div>
+        <div class="colors rounded-circle" data-color="light-blue"></div>
+      </div>
+      <!-- PULSANTE CONFERMA -->
+      <button type="button" class="btn btn-primary sixtyfour" id="confirm">
+        Conferma
+      </button>
+      <!-- CRONOLOGIA DEI TENTATIVI -->
+      <aside class="chronology" id="chronology">
+        <!-- SOTTOTITOLO CRONOLOGIA -->
+        <h3>Cronologia</h3>
+        <!-- BOTTONE NASCONDI CRONOLOGIA -->
+        <button
+          type="button"
+          id="hide-chronology"
+          class="btn btn-dark position-absolute mt-4 me-4 top-0 end-0 sixtyfour"
+        >
+          Chiudi
+        </button>
+        <!-- SOTTOTITOLO TENTATIVI -->
+        <div>Tentativi</div>
+      </aside>
+    </main>
 
-
-		<div class="position-fixed bottom-0 start-0 p-5">
-			<!-- BOTTONE CRONOLOGIA -->
-			<button type="button" class="btn btn-primary" id="show-chronology">
-				Cronologia
-			</button>
-		</div>
+    <div class="position-fixed bottom-0 start-0 p-5">
+      <!-- BOTTONE CRONOLOGIA -->
+      <button type="button" class="btn btn-primary sixtyfour" id="show-chronology">
+        Cronologia
+      </button>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
