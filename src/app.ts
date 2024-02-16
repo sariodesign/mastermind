@@ -1,3 +1,7 @@
+import createFailedSelection from "./attempt.js";
+
+const asideChronology = document.querySelector("#attempts-list");
+
 enum Colors {
 	RED = "red",
 	DARKBLUE = "darkBlue",
@@ -56,6 +60,9 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 	if (result.correctColorAndPosition === COLORS_LENGHT) {
 		return true;
 	} else {
+		// Add failed combination to chronology
+		console.log('Aggiungere combinazione alla cronoologia');
+		createFailedSelection(colorFromUser,asideChronology);
 		return false;
 	}
 }
