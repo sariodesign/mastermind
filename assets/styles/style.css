@@ -32,10 +32,10 @@ body {
 	min-height: 14px;
 	margin: 0 4px;
 }
-.mb-0{
-  text-align: left;
-  font-size: larger;
-  padding: 15px;
+.mb-0 {
+	text-align: left;
+	font-size: larger;
+	padding: 15px;
 }
 
 .input-attempt {
@@ -69,19 +69,24 @@ body {
 	left: 0;
 }
 
+.attempt-counter {
+	font-size: 1.2rem;
+}
+
 .attempts {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: auto;
 }
 
 .attempts-list {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  row-gap: 16px;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	row-gap: 16px;
 }
 
 .attempt-item {
@@ -97,12 +102,13 @@ body {
 }
 
 .attempt-failed {
-  display: flex;
-  column-gap: 4px;
+	display: flex;
+	column-gap: 4px;
+	margin-bottom: 16px;
 }
 
 .attempt-failed-item {
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
 .attempt-suggestion {
@@ -141,6 +147,6 @@ body {
 	background-color: red;
 }
 
-.giallo{
+.giallo {
 	background-color: yellow;
 }

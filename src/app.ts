@@ -302,19 +302,18 @@ function getAttempts() {
 	attempts = parseInt(
 		(document.querySelector("#attempts") as HTMLInputElement).value
 	);
-	const div = document.createElement("div");
-	div.innerHTML = `Tentativi: ${attempts}`;
-	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
-		div
-	);
+	updateAttempText(attempts.toString());
+	document.getElementById("attempts-input")?.classList.remove("d-flex");
+	document.getElementById("attempts-input")?.classList.add("d-none");
+	document.getElementById("app")?.classList.remove("d-none");
+	document.getElementById("app")?.classList.add("d-flex");
 }
 
 function updateAttempText(attempt: string) {
-	const div = document.createElement("div");
-	div.innerHTML = `Tentativi: ${attempt}`;
-	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
-		div
-	);
+	const attemptCounter = document.getElementById("attempt-counter");
+	if (attemptCounter) {
+		attemptCounter.innerHTML = `Tentativi: ${attempt}`;
+	}
 }
 
 startButton?.addEventListener("click", () => {
