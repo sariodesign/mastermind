@@ -1,6 +1,11 @@
 import createFailedSelection from "./attempt.js";
 
+const startButton = document.querySelector("#start-game");
+
 const asideChronology = document.querySelector("#attempts-list");
+const attemptMessage = document.createElement("p");
+attemptMessage.textContent = "Non ci sono ancora tentativi";
+asideChronology?.appendChild(attemptMessage);
 
 export enum Colors {
 	RED = "red",
@@ -63,8 +68,24 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 		return true;
 	} else {
 		// Add failed combination to chronology
-		console.log("Aggiungere combinazione alla cronoologia");
-		createFailedSelection(colorFromUser, asideChronology);
+		console.log("Aggiungere combinazione alla cronologia");
+		console.log("Colors to guess: ", colorsToGuess);
+		console.log("Colors from user: ", colorFromUser);
+		asideChronology?.querySelector("p")?.remove();
+		let checkOccurence = colorFromUser.map((color, index) => {
+			if(colorsToGuess.includes(color) && colorFromUser[index] === colorsToGuess[index]){
+				console.log('Correct color and correct position');
+				return 'green';
+			} else if(colorsToGuess.includes(color) && colorFromUser[index] !== colorsToGuess[index]) {
+				console.log('Correct color and wrong position');
+				return 'yellow';
+			} else {
+				console.log('Incorrect color')
+				return 'red';
+			}
+		});
+		console.log("Check occurence: ", checkOccurence);
+		createFailedSelection(colorFromUser, asideChronology, checkOccurence);
 		return false;
 	}
 }
