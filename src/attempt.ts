@@ -7,6 +7,7 @@ function attemptFailed(colors:any) {
 		let colorElement = document.createElement('div');
 		colorElement.classList.add('attempt-item');
 		colorElement.style.backgroundColor = color;
+		colorElement.style.borderRadius = '100%';
 		attemptFailed.appendChild(colorElement);
 	});
 	console.log('Failed')
