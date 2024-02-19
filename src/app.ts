@@ -319,3 +319,22 @@ document.querySelector("#start-game")?.addEventListener("click", () => {
 	getAttempts();
 	startGame();
 });
+
+document.getElementById("play-again")?.addEventListener("click", () => {
+	startGame();
+	clearHistory();
+	document.getElementById("close")?.click();
+	// var modal = document.querySelector(".modal.show");
+	// modal?.classList.remove("show");
+	// modal?.classList.add("d-none");
+	// TO DO implementare restart game 
+})
+
+function clearHistory() {
+	let attempt = asideChronology?.lastChild;
+	while(attempt){
+		asideChronology?.removeChild(attempt);
+		attempt = asideChronology?.lastChild;
+	}
+}
+
