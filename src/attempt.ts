@@ -1,11 +1,12 @@
-// TODO: Add correct types
+import { Colors } from "./app";
 
-function attemptFailed(colors:any) {
-	let attemptFailed = document.createElement('div');
-	attemptFailed.classList.add('attempt-failed');
-	colors.forEach((color:any) => {
-		let colorElement = document.createElement('div');
-		colorElement.classList.add('attempt-item');
+function attemptFailed(colors: Colors[]) {
+	let attemptFailed = document.createElement("div");
+	attemptFailed.classList.add("attempt-failed");
+	colors.forEach((color) => {
+		let colorElement = document.createElement("div");
+		colorElement.style.width = "50px";
+		colorElement.style.height = "50px";
 		colorElement.style.backgroundColor = color;
 		colorElement.style.borderRadius = '100%';
 		attemptFailed.appendChild(colorElement);
@@ -30,7 +31,7 @@ function attemptSuggestions(occurrence:String[]) {
 
 }
 
-function createFailedSelection(selection:any, element:any, occurrence:any) {
+function createFailedSelection(selection: Colors[], element: Element | null) {
 	let failedElement = document.createElement('div');
 	failedElement.classList.add('attempt-failed-container');
 	failedElement.appendChild(attemptSuggestions(occurrence));
