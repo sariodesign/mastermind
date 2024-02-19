@@ -76,7 +76,6 @@ body {
 }
 
 .attempts-list {
-  align-items: flex-end;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -99,7 +98,6 @@ body {
 .attempt-failed {
   display: flex;
   column-gap: 4px;
-	margin-bottom: 16px;
 }
 
 .attempt-failed-item {

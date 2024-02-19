@@ -92,12 +92,11 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 		});
 		console.log("Check occurence: ", checkOccurence);
 		createFailedSelection(colorFromUser, asideChronology, checkOccurence);
-		return false;
+		//return false;
 	}
 }
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
-	console.log(check(userChoice, colorsToGuess));
 	if (check(userChoice, colorsToGuess)) {
 		handleWin();
 	} else {
@@ -315,7 +314,7 @@ function updateAttempText(attempt: string) {
 	);
 }
 
-document.querySelector("#start-game")?.addEventListener("click", () => {
+startButton?.addEventListener("click", () => {
 	getAttempts();
 	startGame();
 });
