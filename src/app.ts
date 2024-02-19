@@ -1,6 +1,9 @@
 import createFailedSelection from "./attempt.js";
 
 const startButton = document.querySelector("#start-game");
+const combination = document.getElementById("combination");
+
+console.log('Combination el: ', combination);
 
 const asideChronology = document.querySelector("#attempts-list");
 const attemptMessage = document.createElement("p");
@@ -16,7 +19,7 @@ export enum Colors {
 	LIGHTBLUE = "lightBlue",
 }
 
-const COLORS_LENGHT = 4;
+const COLORS_LENGHT = 5;
 
 let colorsToGuess: Colors[] = [];
 let userChoice: Colors[] = [];
@@ -315,6 +318,12 @@ function updateAttempText(attempt: string) {
 }
 
 startButton?.addEventListener("click", () => {
+	for(let i = 0; i < COLORS_LENGHT; i++) {
+		const hiddenColor = document.createElement("div");
+		hiddenColor.classList.add("colors", "border");
+		combination?.appendChild(hiddenColor);
+	}
+
 	getAttempts();
 	startGame();
 });
