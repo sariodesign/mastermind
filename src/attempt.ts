@@ -5,9 +5,10 @@ function attemptFailed(colors:any) {
 	attemptFailed.classList.add('attempt-failed');
 	colors.forEach((color:any) => {
 		let colorElement = document.createElement('div');
-		colorElement.style.width = '50px';
-		colorElement.style.height = '50px';
+		colorElement.style.width = '40px';
+		colorElement.style.height = '40px';
 		colorElement.style.backgroundColor = color;
+		colorElement.style.borderRadius = '100%';
 		attemptFailed.appendChild(colorElement);
 	});
 	return attemptFailed;
