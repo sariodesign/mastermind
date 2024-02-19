@@ -73,15 +73,21 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 		console.log("Colors from user: ", colorFromUser);
 		asideChronology?.querySelector("p")?.remove();
 		let checkOccurence = colorFromUser.map((color, index) => {
-			if(colorsToGuess.includes(color) && colorFromUser[index] === colorsToGuess[index]){
-				console.log('Correct color and correct position');
-				return 'green';
-			} else if(colorsToGuess.includes(color) && colorFromUser[index] !== colorsToGuess[index]) {
-				console.log('Correct color and wrong position');
-				return 'yellow';
+			if (
+				colorsToGuess.includes(color) &&
+				colorFromUser[index] === colorsToGuess[index]
+			) {
+				console.log("Correct color and correct position");
+				return "green";
+			} else if (
+				colorsToGuess.includes(color) &&
+				colorFromUser[index] !== colorsToGuess[index]
+			) {
+				console.log("Correct color and wrong position");
+				return "yellow";
 			} else {
-				console.log('Incorrect color')
-				return 'red';
+				console.log("Incorrect color");
+				return "red";
 			}
 		});
 		console.log("Check occurence: ", checkOccurence);
