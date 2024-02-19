@@ -2,7 +2,7 @@ import createFailedSelection from "./attempt.js";
 
 const asideChronology = document.querySelector("#attempts-list");
 
-enum Colors {
+export enum Colors {
 	RED = "red",
 	DARKBLUE = "darkBlue",
 	GREEN = "green",
@@ -15,6 +15,8 @@ const COLORS_LENGHT = 4;
 
 let colorsToGuess: Colors[] = [];
 let userChoice: Colors[] = [];
+
+let attempts: number;
 
 function generateRandomListOfColors() {
 	const colors = [
@@ -69,7 +71,15 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
 	console.log(check(userChoice, colorsToGuess));
-	check(userChoice, colorsToGuess) ? handleWin() : console.log();
+	if (check(userChoice, colorsToGuess)) {
+		handleWin();
+	} else {
+		attempts--;
+		updateAttempText(attempts.toString());
+		if (attempts < 1) {
+			handleLose();
+		}
+	}
 
 	userChoice = [];
 	document
@@ -92,9 +102,7 @@ document.querySelector("#confirm")?.addEventListener("click", () => {
  */
 function handlerShowChronology() {
 	const chronology = document.querySelector("#chronology");
-	console.log("Show/Hide");
 	if (chronology) {
-		console.log("Show");
 		chronology.classList.add("show");
 	}
 }
@@ -261,5 +269,26 @@ document.addEventListener("click", (event) => {
 	}
 });
 
-// TODO: impostare la funzione che deve essere eseguita dopo la scelta del numero di tentativi
-startGame();
+function getAttempts() {
+	attempts = parseInt(
+		(document.querySelector("#attempts") as HTMLInputElement).value
+	);
+	const div = document.createElement("div");
+	div.innerHTML = `Tentativi: ${attempts}`;
+	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
+		div
+	);
+}
+
+function updateAttempText(attempt: string) {
+	const div = document.createElement("div");
+	div.innerHTML = `Tentativi: ${attempt}`;
+	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
+		div
+	);
+}
+
+document.querySelector("#start-game")?.addEventListener("click", () => {
+	getAttempts();
+	startGame();
+});

@@ -97,7 +97,10 @@
 			</navbar>
 		</header>
 		<main class="container d-flex flex-column align-items-center">
-			<div class="d-flex flex-column align-items-center mb-5">
+			<div
+				class="d-flex flex-column align-items-center mb-5"
+				id="attempts-input"
+			>
 				<div class="d-flex column-gap-3 align-items-center mb-3">
 					<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
 					<label class="instruction"
@@ -106,6 +109,7 @@
 					<!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
 					<input
 						class="input-attempt"
+						id="attempts"
 						type="number"
 						placeholder="Inserisci numero tentativi"
 						value="10"
@@ -120,6 +124,10 @@
 					Inizia
 				</button>
 			</div>
+			<div
+				id="attempt-list"
+				class="d-flex flex-column align-items-center mb-5"
+			></div>
 			<!-- SFILOTTO DI COLORI -->
 			<div
 				class="color-selections d-flex justify-content-center mb-3"
@@ -155,7 +163,7 @@
 				<div class="">
 					<h3>Cronologia</h3>
 				</div>
-					
+
 				<!-- BOTTONE NASCONDI CRONOLOGIA -->
 				<button
 					type="button"
