@@ -1,5 +1,7 @@
 import createFailedSelection from "./attempt.js";
 
+const startButton = document.querySelector("#start-game");
+
 const asideChronology = document.querySelector("#attempts-list");
 const attemptMessage = document.createElement("p");
 attemptMessage.textContent = "Non ci sono ancora tentativi";
@@ -280,4 +282,6 @@ document.addEventListener("click", (event) => {
 });
 
 // TODO: impostare la funzione che deve essere eseguita dopo la scelta del numero di tentativi
-startGame();
+startButton?.addEventListener("click", () => {
+	startGame();
+})
