@@ -3,7 +3,7 @@ import createFailedSelection from "./attempt.js";
 const startButton = document.querySelector("#start-game");
 const combination = document.getElementById("combination");
 
-console.log('Combination el: ', combination);
+console.log("Combination el: ", combination);
 
 const asideChronology = document.querySelector("#attempts-list");
 const attemptMessage = document.createElement("p");
@@ -196,8 +196,8 @@ function setColors() {
 					return;
 				}
 
-				// Controllo che ci siano massimo quattro colori
-				if (userChoice.length === 4) {
+				// Controllo che ci siano ancora posti disponibili per la scelta dei colori
+				if (userChoice.length === COLORS_LENGHT) {
 					return;
 				}
 
@@ -317,7 +317,7 @@ function updateAttempText(attempt: string) {
 }
 
 startButton?.addEventListener("click", () => {
-	for(let i = 0; i < COLORS_LENGHT; i++) {
+	for (let i = 0; i < COLORS_LENGHT; i++) {
 		const hiddenColor = document.createElement("div");
 		hiddenColor.classList.add("colors", "border");
 		combination?.appendChild(hiddenColor);
