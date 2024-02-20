@@ -102,7 +102,7 @@ document.querySelector("#confirm")?.addEventListener("click", () => {
 		handleWin();
 	} else {
 		attempts--;
-		updateAttempText(attempts.toString());
+		updateAttempText(attempts.toString(), document.querySelector(".attempts-quantity") as HTMLElement);
 		if (attempts < 1) {
 			handleLose();
 		}
@@ -300,19 +300,15 @@ function getAttempts() {
 	attempts = parseInt(
 		(document.querySelector("#attempts") as HTMLInputElement).value
 	);
-	const div = document.createElement("div");
-	div.innerHTML = `Tentativi: ${attempts}`;
-	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
-		div
-	);
+	const attemptsQuantity = document.createElement("div");
+	attemptsQuantity.classList.add("attempts-quantity");
+	attemptsQuantity.innerHTML = `Tentativi: ${attempts}`;
+	(document.getElementById("attempts-input") as HTMLElement).appendChild(attemptsQuantity);
+	(document.getElementById("attempts-input-block") as HTMLElement).classList.add("d-none");
 }
 
-function updateAttempText(attempt: string) {
-	const div = document.createElement("div");
-	div.innerHTML = `Tentativi: ${attempt}`;
-	(document.getElementById("attempts-input") as HTMLElement).replaceChildren(
-		div
-	);
+function updateAttempText(attempt: string, element: HTMLElement | null = null) {
+	element!.innerHTML = `Tentativi: ${attempt}`;
 }
 
 document.querySelector("#start-game")?.addEventListener("click", () => {
@@ -321,9 +317,12 @@ document.querySelector("#start-game")?.addEventListener("click", () => {
 });
 
 document.getElementById("play-again")?.addEventListener("click", () => {
-	startGame();
-	clearHistory();
+	//startGame();
+	//clearHistory();
 	document.getElementById("close")?.click();
+	clearHistory();
+	(document.getElementById("attempts-input-block") as HTMLElement).classList.remove("d-none");
+	(document.querySelector(".attempts-quantity") as HTMLElement).remove();
 	// var modal = document.querySelector(".modal.show");
 	// modal?.classList.remove("show");
 	// modal?.classList.add("d-none");

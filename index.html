@@ -101,28 +101,31 @@
 				class="d-flex flex-column align-items-center mb-5"
 				id="attempts-input"
 			>
-				<div class="d-flex column-gap-3 align-items-center mb-3">
-					<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
-					<label class="instruction"
-						>Inserisci numero di tentativi</label
+				<div id="attempts-input-block" class="d-flex flex-column align-items-center">
+
+					<div class="d-flex column-gap-3 align-items-center mb-3">
+						<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
+						<label class="instruction"
+							>Inserisci numero di tentativi</label
+						>
+						<!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
+						<input
+							class="input-attempt"
+							id="attempts"
+							type="number"
+							placeholder="Inserisci numero tentativi"
+							value="10"
+						/>
+						<!-- PULSANTE INIZIA -->
+					</div>
+					<button
+						type="button"
+						id="start-game"
+						class="btn btn-primary sixtyfour"
 					>
-					<!-- INPUT CHE RESTITUSCE IL NUMERO DI TENTATIVI -->
-					<input
-						class="input-attempt"
-						id="attempts"
-						type="number"
-						placeholder="Inserisci numero tentativi"
-						value="10"
-					/>
-					<!-- PULSANTE INIZIA -->
+						Inizia
+					</button>
 				</div>
-				<button
-					type="button"
-					id="start-game"
-					class="btn btn-primary sixtyfour"
-				>
-					Inizia
-				</button>
 			</div>
 			<div
 				id="attempt-list"
