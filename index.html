@@ -111,6 +111,8 @@
 					class="d-flex flex-column align-items-center mb-5"
 					id="attempts-input"
 				>
+
+        <div id="attempts-input-block" class="d-flex flex-column align-items-center">
 					<div class="d-flex column-gap-3 align-items-center mb-3">
 						<!-- SOTTOTITOLO PER LE ISTRUZIONI -->
 						<label class="instruction"
@@ -133,6 +135,7 @@
 					>
 						Inizia
 					</button>
+          </div>
 				</div>
 				<!-- SFILOTTO DI COLORI -->
 				<div
@@ -247,6 +250,7 @@
 							class="btn-close"
 							data-bs-dismiss="modal"
 							aria-label="Close"
+							id="close"
 						></button>
 					</div>
 					<div class="modal-body"></div>
@@ -258,7 +262,7 @@
 						>
 							Close
 						</button>
-						<button type="button" class="btn btn-primary">
+						<button type="button" class="btn btn-primary" id="play-again">
 							Play again
 						</button>
 					</div>

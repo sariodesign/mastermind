@@ -104,7 +104,7 @@ document.querySelector("#confirm")?.addEventListener("click", () => {
 		handleWin();
 	} else {
 		attempts--;
-		updateAttempText(attempts.toString());
+		updateAttempText(attempts.toString(), document.querySelector(".attempts-quantity") as HTMLElement);
 		if (attempts < 1) {
 			handleLose();
 		}
@@ -302,18 +302,15 @@ function getAttempts() {
 	attempts = parseInt(
 		(document.querySelector("#attempts") as HTMLInputElement).value
 	);
-	updateAttempText(attempts.toString());
-	document.getElementById("attempts-input")?.classList.remove("d-flex");
-	document.getElementById("attempts-input")?.classList.add("d-none");
-	document.getElementById("app")?.classList.remove("d-none");
-	document.getElementById("app")?.classList.add("d-flex");
+	const attemptsQuantity = document.createElement("div");
+	attemptsQuantity.classList.add("attempts-quantity");
+	attemptsQuantity.innerHTML = `Tentativi: ${attempts}`;
+	(document.getElementById("attempts-input") as HTMLElement).appendChild(attemptsQuantity);
+	(document.getElementById("attempts-input-block") as HTMLElement).classList.add("d-none");
 }
 
-function updateAttempText(attempt: string) {
-	const attemptCounter = document.getElementById("attempt-counter");
-	if (attemptCounter) {
-		attemptCounter.innerHTML = `Tentativi: ${attempt}`;
-	}
+function updateAttempText(attempt: string, element: HTMLElement | null = null) {
+	element!.innerHTML = `Tentativi: ${attempt}`;
 }
 
 startButton?.addEventListener("click", () => {
@@ -326,3 +323,25 @@ startButton?.addEventListener("click", () => {
 	getAttempts();
 	startGame();
 });
+
+document.getElementById("play-again")?.addEventListener("click", () => {
+	//startGame();
+	//clearHistory();
+	document.getElementById("close")?.click();
+	clearHistory();
+	(document.getElementById("attempts-input-block") as HTMLElement).classList.remove("d-none");
+	(document.querySelector(".attempts-quantity") as HTMLElement).remove();
+	// var modal = document.querySelector(".modal.show");
+	// modal?.classList.remove("show");
+	// modal?.classList.add("d-none");
+	// TO DO implementare restart game 
+})
+
+function clearHistory() {
+	let attempt = asideChronology?.lastChild;
+	while(attempt){
+		asideChronology?.removeChild(attempt);
+		attempt = asideChronology?.lastChild;
+	}
+}
+
