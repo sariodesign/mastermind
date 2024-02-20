@@ -100,15 +100,19 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 }
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
+	if(attempts < 1 ){
+		return
+	}
+
 	if (check(userChoice, colorsToGuess)) {
 		handleWin();
 	} else {
 		attempts--;
 		updateAttempText(attempts.toString(), document.querySelector(".attempts-quantity") as HTMLElement);
-		if (attempts < 1) {
+		if (attempts < 1 ) {
 			handleLose();
 		}
-	}
+	} 
 
 	userChoice = [];
 	document
@@ -314,6 +318,7 @@ function updateAttempText(attempt: string, element: HTMLElement | null = null) {
 }
 
 startButton?.addEventListener("click", () => {
+	combination!.innerHTML = "";
 	for (let i = 0; i < COLORS_LENGHT; i++) {
 		const hiddenColor = document.createElement("div");
 		hiddenColor.classList.add("colors", "border");
@@ -322,13 +327,16 @@ startButton?.addEventListener("click", () => {
 
 	getAttempts();
 	startGame();
+	// visualizza selezione colori per utente
+	document.getElementById("app")?.classList.remove("d-none");
+	document.getElementById("app")?.classList.add("d-flex");
 });
 
 document.getElementById("play-again")?.addEventListener("click", () => {
-	//startGame();
-	//clearHistory();
-	document.getElementById("close")?.click();
+	(document.getElementById("app")?.classList.add("d-none"));
+	startGame();
 	clearHistory();
+	document.getElementById("close")?.click();
 	(document.getElementById("attempts-input-block") as HTMLElement).classList.remove("d-none");
 	(document.querySelector(".attempts-quantity") as HTMLElement).remove();
 	// var modal = document.querySelector(".modal.show");
