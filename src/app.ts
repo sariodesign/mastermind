@@ -1,6 +1,9 @@
 import createFailedSelection from "./attempt.js";
 
 const startButton = document.querySelector("#start-game");
+const combination = document.getElementById("combination");
+
+console.log("Combination el: ", combination);
 
 const asideChronology = document.querySelector("#attempts-list");
 const attemptMessage = document.createElement("p");
@@ -16,7 +19,7 @@ export enum Colors {
 	LIGHTBLUE = "lightBlue",
 }
 
-const COLORS_LENGHT = 4;
+const COLORS_LENGHT = 5;
 
 let colorsToGuess: Colors[] = [];
 let userChoice: Colors[] = [];
@@ -92,12 +95,11 @@ function check(colorFromUser: Colors[], colorsToGuess: Colors[]) {
 		});
 		console.log("Check occurence: ", checkOccurence);
 		createFailedSelection(colorFromUser, asideChronology, checkOccurence);
-		return false;
+		//return false;
 	}
 }
 
 document.querySelector("#confirm")?.addEventListener("click", () => {
-	console.log(check(userChoice, colorsToGuess));
 	if (check(userChoice, colorsToGuess)) {
 		handleWin();
 	} else {
@@ -194,8 +196,8 @@ function setColors() {
 					return;
 				}
 
-				// Controllo che ci siano massimo quattro colori
-				if (userChoice.length === 4) {
+				// Controllo che ci siano ancora posti disponibili per la scelta dei colori
+				if (userChoice.length === COLORS_LENGHT) {
 					return;
 				}
 
@@ -311,7 +313,13 @@ function updateAttempText(attempt: string, element: HTMLElement | null = null) {
 	element!.innerHTML = `Tentativi: ${attempt}`;
 }
 
-document.querySelector("#start-game")?.addEventListener("click", () => {
+startButton?.addEventListener("click", () => {
+	for (let i = 0; i < COLORS_LENGHT; i++) {
+		const hiddenColor = document.createElement("div");
+		hiddenColor.classList.add("colors", "border");
+		combination?.appendChild(hiddenColor);
+	}
+
 	getAttempts();
 	startGame();
 });
